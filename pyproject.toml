@@ -1,0 +1,45 @@
+[project]
+name = "re-due-diligence-copilot"
+version = "1.0.0"
+description = "OCR + RAG + multi-agent real estate due-diligence copilot"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+authors = [{ name = "Shaik Owais Sadiq" }]
+
+dependencies = [
+    "fastapi==0.115.0",
+    "uvicorn[standard]==0.30.6",
+    "python-multipart==0.0.9",
+    "langchain==0.3.0",
+    "langchain-community==0.3.0",
+    "langchain-openai==0.2.0",
+    "langgraph==0.2.28",
+    "faiss-cpu==1.8.0.post1",
+    "pymupdf==1.24.10",
+    "pytesseract==0.3.13",
+    "pillow==10.4.0",
+    "python-dotenv==1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter==1.1.1",
+    "ipykernel==6.29.5",
+    "black==24.8.0",
+    "ruff==0.6.9",
+    "pytest==8.3.3",
+]
+aws = [
+    "boto3==1.35.36",     # S3 (FAISS index persistence) + Secrets Manager
+    "mangum==0.19.0",     # only if you deploy as Lambda instead of Fargate/EC2
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["pipeline", "app"]
+
+[tool.ruff]
+line-length = 100
