@@ -1,0 +1,28 @@
+# secrets - NEVER commit
+.env
+
+# runtime-generated
+faiss_index/
+jobs/
+
+# python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# notebooks
+.ipynb_checkpoints/
+
+.env
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.zip
+*.log
+storage/
+uploads/
+faiss_index/
+*.faiss
+*.pkl
